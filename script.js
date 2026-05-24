@@ -1,17 +1,13 @@
-console.log("Rental Property Finder Loaded");
+const cards =
+document.querySelectorAll(".service-card");
 
 
 
-const buttons =
-document.querySelectorAll(".card button");
+cards.forEach(function(card){
 
+    card.addEventListener("click", function(){
 
-
-buttons.forEach(function(button){
-
-    button.addEventListener("click", function(){
-
-        alert("Property Details Coming Soon!");
+        alert("Service Opened!");
 
     });
 
