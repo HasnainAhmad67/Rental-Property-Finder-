@@ -19,6 +19,7 @@ body{
 /* NAVBAR */
 
 .navbar{
+
     background:#222;
 
     display:flex;
@@ -35,6 +36,7 @@ body{
 /* LOGO */
 
 .logo{
+
     color:#ff4d4d;
 
     font-size:28px;
@@ -47,6 +49,7 @@ body{
 /* NAV LINKS */
 
 .nav-links{
+
     display:flex;
 
     list-style:none;
@@ -57,6 +60,7 @@ body{
 
 
 .nav-links a{
+
     color:white;
 
     text-decoration:none;
@@ -69,6 +73,7 @@ body{
 /* BUTTON */
 
 .post-btn{
+
     padding:12px 25px;
 
     border:none;
@@ -87,6 +92,7 @@ body{
 /* HERO SECTION */
 
 .hero{
+
     height:100vh;
 
     background:url("https://picsum.photos/1600/900");
@@ -101,6 +107,7 @@ body{
 /* OVERLAY */
 
 .overlay{
+
     width:100%;
 
     height:100%;
@@ -119,6 +126,7 @@ body{
 /* SEARCH BOX */
 
 .search-box{
+
     width:500px;
 
     background:white;
@@ -133,6 +141,7 @@ body{
 /* TITLE */
 
 .search-box h1{
+
     text-align:center;
 
     margin-bottom:25px;
@@ -143,6 +152,7 @@ body{
 /* INPUT */
 
 .search-box input{
+
     width:100%;
 
     padding:15px;
@@ -157,6 +167,7 @@ body{
 /* FORM GROUP */
 
 .form-group{
+
     display:flex;
 
     gap:20px;
@@ -169,6 +180,7 @@ body{
 /* SELECT */
 
 .form-group select{
+
     width:100%;
 
     padding:15px;
@@ -181,6 +193,7 @@ body{
 /* SEARCH BUTTON */
 
 .search-btn{
+
     width:100%;
 
     padding:15px;
@@ -200,37 +213,10 @@ body{
 
 
 
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-    .navbar{
-        flex-direction:column;
-
-        gap:20px;
-    }
-
-    .nav-links{
-        flex-direction:column;
-
-        text-align:center;
-    }
-
-    .search-box{
-        width:90%;
-    }
-
-    .form-group{
-        flex-direction:column;
-    }
-    .services-container{
-    grid-template-columns:1fr;
-}
-
-}
 /* SERVICES SECTION */
 
 .services{
+
     padding:80px 10%;
 
     background:#f5f5f5;
@@ -241,6 +227,7 @@ body{
 /* TITLE */
 
 .services-title{
+
     text-align:center;
 
     font-size:45px;
@@ -256,8 +243,7 @@ body{
 
     display:grid;
 
-    grid-template-columns:
-    repeat(2, 1fr);
+    grid-template-columns:repeat(2, 1fr);
 
     gap:30px;
 }
@@ -321,4 +307,41 @@ body{
     color:gray;
 
     line-height:1.6;
+}
+
+
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        gap:20px;
+    }
+
+    .nav-links{
+
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .search-box{
+
+        width:90%;
+    }
+
+    .form-group{
+
+        flex-direction:column;
+    }
+
+    .services-container{
+
+        grid-template-columns:1fr;
+    }
+
 }
