@@ -1,0 +1,38 @@
+{
+  "properties": [
+    {
+      "id": "1",
+      "title": "Luxury Apartment",
+      "city": "Karachi",
+      "type": "Apartment",
+      "bhk": "3 BHK",
+      "price": 25000,
+      "owner": "Ali Khan",
+      "phone": "03001234567",
+      "image": "https://picsum.photos/300/200?1"
+    },
+    {
+      "id": "2",
+      "title": "Family House",
+      "city": "Lahore",
+      "type": "House",
+      "bhk": "5 BHK",
+      "price": 40000,
+      "owner": "Ahmed",
+      "phone": "03111234567",
+      "image": "https://picsum.photos/300/200?2"
+    },
+    {
+      "title": "FLAT",
+      "city": "Bahawalpur",
+      "type": "FLAT",
+      "bhk": "2",
+      "price": "12000",
+      "owner": "AHMAD ",
+      "phone": "03000000000",
+      "image": "https://picsum.photos/300/200?random=0.5433838531060444",
+      "id": "uoEqVDArYB8"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
