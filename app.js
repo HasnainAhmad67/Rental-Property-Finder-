@@ -1,65 +1,53 @@
-const cards =
-document.querySelectorAll(".service-card");
+const cards = document.querySelectorAll(".service-card");
 
-cards.forEach(function(card){
-
-    card.addEventListener("click", function(){
-
+cards.forEach(function(card) {
+    card.addEventListener("click", function() {
         alert("Service Opened!");
-
     });
-
 });
 
-const API_URL =
-"http://localhost:3000/properties";
+let allProperties = [];
 
-const propertyContainer =
-document.getElementById("propertyContainer");
+const API_URL = "http://localhost:3000/properties";
 
-const loading =
-document.getElementById("loading");
+const propertyContainer = document.getElementById("propertyContainer");
+const loading = document.getElementById("loading");
 
-async function fetchProperties(){
-
-    try{
-
+async function fetchProperties() {
+    try {
         loading.style.display = "block";
 
-        const response =
-        await fetch(API_URL);
+        const response = await fetch(API_URL);
 
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error("Failed To Fetch");
         }
 
-        const properties =
-        await response.json();
+        const properties = await response.json();
+
+        allProperties = properties;
 
         renderProperties(properties);
 
-    }
-
-    catch(error){
+    } catch (error) {
 
         propertyContainer.innerHTML =
-        "<h2>Failed To Load Properties</h2>";
+            "<h2>Failed To Load Properties</h2>";
 
-    }
+        console.error(error);
 
-    finally{
+    } finally {
 
         loading.style.display = "none";
 
     }
-
 }
 
-function renderProperties(properties){
+function renderProperties(properties) {
 
     propertyContainer.innerHTML = "";
 
-    properties.forEach(property=>{
+    properties.forEach(function(property) {
 
         propertyContainer.innerHTML += `
 
@@ -71,15 +59,25 @@ function renderProperties(properties){
 
                 <h3>${property.title}</h3>
 
-                <p><strong>City:</strong> ${property.city}</p>
+                <span class="city-badge">
+                    📍 ${property.city}
+                </span>
 
-                <p><strong>Type:</strong> ${property.type}</p>
+                <p>🏠 ${property.type}</p>
 
-                <p><strong>BHK:</strong> ${property.bhk}</p>
+                <p>🛏 ${property.bhk}</p>
 
-                <p><strong>Price:</strong> Rs ${property.price}</p>
+                <h4 class="price-tag">
+                    Rs ${property.price}
+                </h4>
 
-                <p><strong>Owner:</strong> ${property.owner}</p>
+                <p>
+                    👤 ${property.owner}
+                </p>
+
+                <p>
+                    📞 ${property.phone}
+                </p>
 
             </div>
 
@@ -92,6 +90,7 @@ function renderProperties(properties){
 }
 
 fetchProperties();
+
 const propertyForm =
 document.getElementById("propertyForm");
 
@@ -99,97 +98,125 @@ const formError =
 document.getElementById("formError");
 
 propertyForm.addEventListener(
-"submit",
-async function(event){
+    "submit",
+    async function(event) {
 
-    event.preventDefault();
+        event.preventDefault();
 
-    const title =
-    document.getElementById("title").value;
+        const title =
+        document.getElementById("title").value.trim();
 
-    const city =
-    document.getElementById("city").value;
+        const city =
+        document.getElementById("city").value.trim();
 
-    const type =
-    document.getElementById("type").value;
+        const type =
+        document.getElementById("type").value.trim();
 
-    const bhk =
-    document.getElementById("bhk").value;
+        const bhk =
+        document.getElementById("bhk").value.trim();
 
-    const price =
-    document.getElementById("price").value;
+        const price =
+        document.getElementById("price").value.trim();
 
-    const owner =
-    document.getElementById("owner").value;
+        const owner =
+        document.getElementById("owner").value.trim();
 
-    const phone =
-    document.getElementById("phone").value;
+        const phone =
+        document.getElementById("phone").value.trim();
 
-    if(
-        !title ||
-        !city ||
-        !type ||
-        !bhk ||
-        !price ||
-        !owner ||
-        !phone
-    ){
+        if (
+            !title ||
+            !city ||
+            !type ||
+            !bhk ||
+            !price ||
+            !owner ||
+            !phone
+        ) {
 
-        formError.textContent =
-        "All fields are required";
+            formError.textContent =
+            "All fields are required";
 
-        return;
-    }
-
-    formError.textContent = "";
-
-    const newProperty = {
-
-        title,
-        city,
-        type,
-        bhk,
-        price,
-        owner,
-        phone,
-        image:
-        "https://picsum.photos/300/200?random=" +
-        Math.random()
-
-    };
-
-    try{
-
-        const response =
-        await fetch(API_URL,{
-
-            method:"POST",
-
-            headers:{
-                "Content-Type":
-                "application/json"
-            },
-
-            body:
-            JSON.stringify(newProperty)
-
-        });
-
-        if(!response.ok){
-            throw new Error();
+            return;
         }
 
-        propertyForm.reset();
+        formError.textContent = "";
 
-        fetchProperties();
+        const newProperty = {
+
+            title,
+            city,
+            type,
+            bhk,
+            price,
+            owner,
+            phone,
+            image:
+            "https://picsum.photos/300/200?random=" +
+            Date.now()
+
+        };
+
+        try {
+
+            const response =
+            await fetch(API_URL, {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(newProperty)
+
+            });
+
+            if (!response.ok) {
+                throw new Error();
+            }
+
+            propertyForm.reset();
+
+            fetchProperties();
+
+        } catch (error) {
+
+            formError.textContent =
+            "Failed To Save Property";
+
+        }
 
     }
+);
+const heroSearch =
+document.getElementById("heroSearch");
 
-    catch(error){
+const heroSearchBtn =
+document.getElementById("heroSearchBtn");
 
-        formError.textContent =
-        "Failed To Save Property";
+heroSearchBtn.addEventListener(
+"click",
+function(){
 
-    }
+    const city =
+    heroSearch.value.toLowerCase();
+
+    const filtered =
+    allProperties.filter(property =>
+
+        property.city
+        .toLowerCase()
+        .includes(city)
+
+    );
+
+    renderProperties(filtered);
+
+    document
+    .querySelector(".property-section")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
 
 });

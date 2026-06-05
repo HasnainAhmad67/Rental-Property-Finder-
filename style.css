@@ -73,7 +73,8 @@ body{
 /* BUTTON */
 
 .post-btn{
-
+    text-decoration:none;
+    display:inline-block;
     padding:12px 25px;
 
     border:none;
@@ -535,4 +536,146 @@ body{
 #formError{
     color:red;
     text-align:center;
+}
+.property-controls{
+
+    display:flex;
+
+    gap:20px;
+
+    margin-bottom:30px;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+}
+
+.property-controls input,
+.property-controls select{
+
+    padding:12px;
+
+    width:250px;
+
+    border:1px solid #ccc;
+
+    border-radius:5px;
+
+}
+.city-badge{
+    display:inline-block;
+    background:#ffeaea;
+    color:#ff4d4d;
+    padding:5px 10px;
+    border-radius:20px;
+    margin-bottom:10px;
+}
+
+.price-tag{
+    color:#ff4d4d;
+    font-size:24px;
+    margin:15px 0;
+}
+
+.card-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.details-btn,
+.contact-btn{
+    flex:1;
+    padding:10px;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.details-btn{
+    background:#222;
+    color:white;
+}
+
+.contact-btn{
+    background:#ff4d4d;
+    color:white;
+}
+/* HELP SECTION */
+
+.help-section{
+
+    padding:80px 10%;
+
+    background:#f8f9fa;
+
+    text-align:center;
+
+}
+
+.help-container h2{
+
+    font-size:40px;
+
+    margin-bottom:15px;
+
+    color:#222;
+
+}
+
+.help-container p{
+
+    color:#666;
+
+    margin-bottom:40px;
+
+}
+
+.help-cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.help-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+
+}
+
+.help-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.help-card h3{
+
+    color:#ff4d4d;
+
+    margin-bottom:15px;
+
+}
+
+@media(max-width:768px){
+
+    .help-cards{
+
+        grid-template-columns:1fr;
+
+    }
+
 }

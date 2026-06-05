@@ -28,20 +28,39 @@
 
         <ul class="nav-links">
 
-            <li><a href="#">Buy</a></li>
+            <li>
+    <a href="#properties">
+        Buy
+    </a>
+</li>
 
-            <li><a href="#">Sell</a></li>
+<li>
+    <a href="#addProperty">
+        Sell
+    </a>
+</li>
 
-            <li><a href="#">Rent</a></li>
+<li>
+    <a href="#properties">
+        Rent
+    </a>
+</li>
 
-            <li><a href="#">Help</a></li>
+<li>
+    <a href="#help">
+        Help
+    </a>
+</li>
+            <li><a href="admin.html">Admin</a></li>
 
         </ul>
+        <a
+href="#addProperty"
+class="post-btn">
 
+    Post Property
 
-        <button class="post-btn">
-            Post Property
-        </button>
+</a>
 
     </nav>
 
@@ -59,8 +78,10 @@
                 <h1>Find Your Perfect Home</h1>
 
 
-                <input type="text"
-                       placeholder="Enter City Name">
+                <input
+                    type="text"
+                    id="heroSearch"
+                    placeholder="Enter City Name">
 
 
                 <div class="form-group">
@@ -126,15 +147,63 @@
 
 
 
-                <button class="search-btn">
-                    Search Property
-                </button>
+                <button
+    class="search-btn"
+    id="heroSearchBtn">
+    Search Property
+</button>
 
             </div>
 
         </div>
 
     </section>
+    <section class="property-section"
+    id="properties">
+    <div class="property-controls">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search By City">
+
+    <select id="typeFilter">
+
+        <option value="">
+            All Types
+        </option>
+
+        <option value="Apartment">
+            Apartment
+        </option>
+
+        <option value="House">
+            House
+        </option>
+
+        <option value="Flat">
+            Flat
+        </option>
+
+    </select>
+
+</div>
+    
+
+    <h2>Available Properties</h2>
+
+    <div id="loading">
+        Loading Properties...
+    </div>
+
+    <div id="propertyContainer">
+
+    </div>
+
+</section>
+
+
+
      
 
     <!-- SERVICES SECTION -->
@@ -222,7 +291,8 @@
         </div>
 
     </section>
-   <section class="about">
+<section class="about"
+id="about">
 
     <div class="about-container">
 
@@ -234,7 +304,8 @@
             Our mission is to connect buyers, sellers, and tenants through
             an easy-to-use property management system.
         </p>
-        <section class="add-property">
+        <section class="add-property"
+        id="addProperty">
 
     <h2>Add New Property</h2>
 
@@ -312,21 +383,54 @@
     </div>
 
 </section>
-<section class="property-section">
-    
+<section class="help-section" id="help">
 
-    <h2>Available Properties</h2>
+    <div class="help-container">
 
-    <div id="loading">
-        Loading Properties...
-    </div>
+        <h2>Need Help?</h2>
 
-    <div id="propertyContainer">
+        <p>
+            Our team is available to help you find,
+            rent, sell, and manage properties.
+        </p>
+
+        <div class="help-cards">
+
+            <div class="help-card">
+
+                <h3>📞 Call Us</h3>
+
+                <p>+92 300 1234567</p>
+
+            </div>
+
+            <div class="help-card">
+
+                <h3>📧 Email</h3>
+
+                <p>support@myhome.com</p>
+
+            </div>
+
+            <div class="help-card">
+
+                <h3>🕒 Working Hours</h3>
+
+                <p>Mon - Sat | 9 AM - 6 PM</p>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
-<footer class="footer">
+
+   
+
+
+<footer class="footer"
+id="footer">
 
     <h3>Rental Property Finder</h3>
 
