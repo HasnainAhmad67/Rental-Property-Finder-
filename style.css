@@ -96,7 +96,7 @@ body{
 
     height:100vh;
 
-    background:url("https://picsum.photos/1600/900");
+    background:url("images/Villa.jpg");
 
     background-size:cover;
 
@@ -519,11 +519,21 @@ body{
     gap:15px;
 }
 
-#propertyForm input{
+#propertyForm input,
+#propertyForm select{
+
+    width:100%;
+
     padding:15px;
+
     border:1px solid #ccc;
+
     border-radius:5px;
+
+    font-size:16px;
+
 }
+
 
 #propertyForm button{
     padding:15px;

@@ -86,20 +86,18 @@ class="post-btn">
 
                 <div class="form-group">
 
-                    <select>
+                    <select id="heroType">
 
                         <option>Property Type</option>
-
-                        <option>Flat</option>
-
                         <option>House</option>
-
                         <option>Apartment</option>
+                        <option>Room</option>
+                        <option>Villa</option>
 
                     </select>
 
 
-                    <select>
+                    <select id="heroBHK">
 
                         <option>BHK</option>
 
@@ -117,29 +115,35 @@ class="post-btn">
 
                 <div class="form-group">
 
-                    <select>
+                    <select id="heroMinBudget">
+                        <option value="">
+                            Any Budget</option>
 
-                        <option>Minimum Budget</option>
+                        <option value="10000">10000</option>
 
-                        <option>$100</option>
+                        <option value="20000">20000</option>
 
-                        <option>$500</option>
+                        <option value="50000">50000</option>
 
-                        <option>$1000</option>
+                        <option value="100000">100000</option>
+
+                        
 
                     </select>
 
 
 
-                    <select>
+                    <select id="heroMaxBudget">
 
-                        <option>Maximum Budget</option>
+                        <option value="">No Limit</option>
 
-                        <option>$5000</option>
+                        <option value="50000">50000</option>
 
-                        <option>$10000</option>
+                        <option value="100000">100000</option>
 
-                        <option>$20000</option>
+                        <option value="200000">200000</option>
+
+                        <option value="500000">500000</option>
 
                     </select>
 
@@ -181,8 +185,11 @@ class="post-btn">
             House
         </option>
 
-        <option value="Flat">
-            Flat
+        <option value="Room">
+            Room
+        </option>
+        <option value="Villa">
+            Villa
         </option>
 
     </select>
@@ -201,7 +208,6 @@ class="post-btn">
     </div>
 
 </section>
-
 
 
      
@@ -321,10 +327,29 @@ id="about">
             id="city"
             placeholder="City">
 
-        <input
-            type="text"
-            id="type"
-            placeholder="Property Type">
+        <select id="type">
+
+    <option value="">
+        Select Property Type
+    </option>
+
+    <option value="House">
+        House
+    </option>
+
+    <option value="Apartment">
+        Apartment
+    </option>
+
+    <option value="Room">
+        Room
+    </option>
+
+    <option value="Villa">
+        Villa
+    </option>
+
+</select>
 
         <input
             type="text"

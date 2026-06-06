@@ -45,6 +45,17 @@ async function fetchProperties() {
 
 function renderProperties(properties) {
 
+    if(properties.length === 0){
+
+        propertyContainer.innerHTML = `
+            <h2 style="text-align:center; padding:40px;">
+                No Properties Found
+            </h2>
+        `;
+
+        return;
+    }
+
     propertyContainer.innerHTML = "";
 
     properties.forEach(function(property) {
@@ -53,7 +64,9 @@ function renderProperties(properties) {
 
         <div class="property-card">
 
-            <img src="${property.image}" alt="${property.title}">
+            <img
+            src="${property.image}"
+            alt="${property.title}">
 
             <div class="property-content">
 
@@ -142,21 +155,91 @@ propertyForm.addEventListener(
 
         formError.textContent = "";
 
-        const newProperty = {
+        let propertyImage = "images/house1.jpg";
 
-            title,
-            city,
-            type,
-            bhk,
-            price,
-            owner,
-            phone,
-            image:
-            "https://picsum.photos/300/200?random=" +
-            Date.now()
+if(type === "House"){
 
-        };
+    const houseImages = [
 
+        "images/house1.jpg",
+        "images/house2.jpg",
+        "images/house3.jpg",
+        "images/house4.jpg",
+        "images/house5.jpg"
+
+    ];
+
+    propertyImage =
+
+    houseImages[
+        Math.floor(
+            Math.random() *
+            houseImages.length
+        )
+    ];
+
+}
+
+else if(type === "Apartment"){
+
+    const apartmentImages = [
+
+        "images/apartment1.jpg",
+        "images/apartment2.jpg"
+
+    ];
+
+    propertyImage =
+
+    apartmentImages[
+        Math.floor(
+            Math.random() *
+            apartmentImages.length
+        )
+    ];
+
+}
+
+else if(type === "Room"){
+
+    const roomImages = [
+
+        "images/room1.jpg",
+        "images/room2.jpg",
+        "images/room3.jpg"
+
+    ];
+
+    propertyImage =
+
+    roomImages[
+        Math.floor(
+            Math.random() *
+            roomImages.length
+        )
+    ];
+
+}
+
+else if(type === "Villa"){
+
+    propertyImage =
+    "images/villa.jpg";
+
+}
+
+const newProperty = {
+
+    title,
+    city,
+    type,
+    bhk,
+    price,
+    owner,
+    phone,
+    image: propertyImage
+
+};
         try {
 
             const response =
@@ -192,6 +275,15 @@ propertyForm.addEventListener(
 const heroSearch =
 document.getElementById("heroSearch");
 
+const heroType =
+document.getElementById("heroType");
+
+const heroMinBudget =
+document.getElementById("heroMinBudget");
+
+const heroMaxBudget =
+document.getElementById("heroMaxBudget");
+
 const heroSearchBtn =
 document.getElementById("heroSearchBtn");
 
@@ -202,14 +294,62 @@ function(){
     const city =
     heroSearch.value.toLowerCase();
 
+    const type =
+    heroType.value;
+
+    const minBudget =
+    Number(heroMinBudget.value);
+
+    const maxBudget =
+    Number(heroMaxBudget.value);
+
     const filtered =
-    allProperties.filter(property =>
+    allProperties.filter(function(property){
 
-        property.city
-        .toLowerCase()
-        .includes(city)
+        const cityMatch =
 
-    );
+            city === ""
+
+            ||
+
+            property.city
+            .toLowerCase()
+            .includes(city);
+
+        const typeMatch =
+
+            type === "Property Type"
+
+            ||
+
+            property.type === type;
+
+        const minMatch =
+
+            !minBudget
+
+            ||
+
+            Number(property.price)
+            >= minBudget;
+
+        const maxMatch =
+
+            !maxBudget
+
+            ||
+
+            Number(property.price)
+            <= maxBudget;
+
+        return (
+            cityMatch &&
+            typeMatch &&
+            minMatch &&
+            maxMatch
+        );
+
+    });
 
     renderProperties(filtered);
 

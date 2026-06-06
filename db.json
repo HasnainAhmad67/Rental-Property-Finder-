@@ -1,26 +1,92 @@
 {
   "properties": [
     {
-      "title": "Flat 1",
-      "city": "Bahawalpur",
-      "type": "FLAT",
+      "title": "house",
+      "city": "Haroonabad",
+      "type": "House",
       "bhk": "2",
-      "price": "12500",
-      "owner": "AHMAD ",
+      "price": "12000",
+      "owner": "AHMAD",
       "phone": "03000000000",
-      "image": "https://picsum.photos/300/200?random=0.5433838531060444",
-      "id": "uoEqVDArYB8"
+      "image": "images/house1.jpg",
+      "id": "yz_g2jebm3s"
     },
     {
-      "title": "VELLA",
-      "city": "Haroonabad",
-      "type": "VELLA",
+      "title": "Apartment",
+      "city": "Bahawalpur",
+      "type": "Apartment",
       "bhk": "15",
+      "price": "60000",
+      "owner": "Ali Amjad",
+      "phone": "030004593983",
+      "image": "images/apartment1.jpg",
+      "id": "Ez8gfEPBWwY"
+    },
+    {
+      "title": "Villa",
+      "city": "Lahore",
+      "type": "Villa",
+      "bhk": "20",
       "price": "1000000",
-      "owner": "Ali Hassan",
-      "phone": "030000000001",
-      "image": "https://picsum.photos/300/200?random=1780584941278",
-      "id": "lSucYx4DSKY"
+      "owner": "Muhammad Abdullah",
+      "phone": "03882773848",
+      "image": "images/villa.jpg",
+      "id": "2z4emLcFrS8"
+    },
+    {
+      "title": "ROOM",
+      "city": "Bahawalpur",
+      "type": "Room",
+      "bhk": "1",
+      "price": "5000",
+      "owner": "HASSAN ALI",
+      "phone": "03000000000",
+      "image": "images/room3.jpg",
+      "id": "dLWy6eY_-iM"
+    },
+    {
+      "title": "House",
+      "city": "Islamabad",
+      "type": "House",
+      "bhk": "9",
+      "price": "60000",
+      "owner": "Babar Azam",
+      "phone": "03458968848",
+      "image": "images/house3.jpg",
+      "id": "gejyysy9X8U"
+    },
+    {
+      "title": "Room",
+      "city": "Bahawalpur",
+      "type": "Room",
+      "bhk": "1",
+      "price": "10000",
+      "owner": "Saad Sarwar",
+      "phone": "033783474737",
+      "image": "images/room2.jpg",
+      "id": "5M8HEGTOJVY"
+    },
+    {
+      "title": "House",
+      "city": "Bahawalpur",
+      "type": "House",
+      "bhk": "5",
+      "price": "40000",
+      "owner": "Ali Asghar",
+      "phone": "033783474756",
+      "image": "images/house5.jpg",
+      "id": "CoP0foqesDA"
+    },
+    {
+      "title": "House",
+      "city": "Bahawalpur",
+      "type": "House",
+      "bhk": "6",
+      "price": "55000",
+      "owner": "M Arslan",
+      "phone": "03378347657",
+      "image": "images/house3.jpg",
+      "id": "XtuVQLB7pYw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
